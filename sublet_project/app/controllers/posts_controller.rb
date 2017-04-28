@@ -64,7 +64,7 @@ class PostsController < ApplicationController
   # POST /posts/1/comments
   def add_comment
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -73,6 +73,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :address, :price, :startdate, :enddate, :owner, :phone)
+      params.require(:post).permit(:picture, :title, :description, :address, :price, :startdate, :enddate, :owner, :phone)
     end
 end
