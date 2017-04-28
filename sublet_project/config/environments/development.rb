@@ -4,10 +4,10 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      bucket: ENV.fetch('sublet-photo'),
-      access_key_id: ENV.fetch('AKIAJR42CQG3UGTMEZ7Q'),
-      secret_access_key: ENV.fetch('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'),
-      s3_region: ENV.fetch('us-east-1'),
+      bucket: ENV.fetch('S3_BUCKET_NAME'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
     }
   }
 
