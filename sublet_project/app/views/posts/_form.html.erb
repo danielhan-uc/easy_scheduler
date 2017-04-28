@@ -1,54 +1,53 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <%= form_for(@post) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, {:class => 'form-control'} %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :startdate %><br>
-    <%= f.text_field :startdate %>
-  </div>
-  <div class="field">
-    <%= f.label :enddate %><br>
-    <%= f.text_field :enddate %>
-  </div>
-  <div class="field">
-    <%= f.label :owner %><br>
-    <%= f.text_field :owner %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.file_field :picture %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, {:class => 'form-control'} %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address, {:class => 'form-control'} %>
+    </div>
+    <div class="field">
+      <%= f.label :price %><br>
+      <%= f.text_field :price, {:class => 'form-control'} %>
+    </div>
+    <div class="field">
+      <%= f.label :startdate %><br>
+      <%= f.text_field :startdate, {:class => 'form-control'} %>
+    </div>
+    <div class="field">
+      <%= f.label :enddate %><br>
+      <%= f.text_field :enddate, {:class => 'form-control'} %>
+    </div>
+    <div class="field">
+      <%= f.label :owner %><br>
+      <%= f.text_field :owner, {:class => 'form-control'} %>
+    </div>
+    <div class="field">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone, {:class => 'form-control'} %>
+    </div>
+    <div class="field">
+      <%= f.label :picture %><br>
+      <%= f.file_field :picture %>
+    </div>
+    <div class="actions">
+      <%= f.submit({:class => "btn btn-primary"}) %>
+    </div>
 <% end %>

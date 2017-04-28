@@ -1,41 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Price</th>
-      <th>Startdate</th>
-      <th>Enddate</th>
-      <th>Owner</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.address %></td>
-        <td><%= post.price %></td>
-        <td><%= post.startdate %></td>
-        <td><%= post.enddate %></td>
-        <td><%= post.owner %></td>
-        <td><%= post.phone %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%=image_tag post.picture.url(:square) %>
+            <div class="caption">
+              <h3><%= post.title %></h3>
+              <p> <%= post.description %> </p>
+              <p> <%= post.address %> </p>
+              <p> <%= "$#{post.price}"%> </p>
+              <p> <%= "#{post.startdate} ~ #{post.enddate}" %> </p>
+              <%= link_to 'Details', post, :class => 'btn btn-default' %>
+            </div>
+          </div>
+        </div>
+    <%end%>
+  </div>
+</div>

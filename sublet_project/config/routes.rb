@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'posts#index'
+  root 'posts#index', as: 'home'
   post 'posts/:id/comments' => 'posts#add_comment'
 
   # Example of regular route:
