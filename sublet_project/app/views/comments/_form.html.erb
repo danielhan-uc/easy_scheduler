@@ -1,0 +1,25 @@
+<%= form_tag(post_comments_path) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag :author %><br>
+    <%= text_field_tag "author" %>
+  </div>
+  <div class="field">
+    <%= label_tag :description %><br>
+    <%= text_field_tag "description" %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Post Comment' %>
+  </div>
+<% end %>
