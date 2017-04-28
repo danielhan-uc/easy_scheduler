@@ -1,62 +1,57 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
-<div class="well">
-<%= image_tag @post.picture.url(:medium) %>
+  <p id="notice"><%= notice %></p>
+  <div class="well">
+    <div class="post_image">
+      <%= image_tag @post.picture.url(:medium) %>
+    </div>
+  <p>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @post.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @post.address %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @post.address %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @post.price %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @post.price %>
-</p>
+  <p>
+    <strong>Date:</strong>
+    <%= "#{@post.startdate} ~ #{@post.enddate}" %>
+  </p>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @post.startdate %>
-</p>
+  <p>
+    <strong>Owner:</strong>
+    <%= @post.owner %>
+  </p>
 
-<p>
-  <strong>Enddate:</strong>
-  <%= @post.enddate %>
-</p>
+  <p>
+    <strong>Phone:</strong>
+    <%= @post.phone %>
+  </p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @post.owner %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @post.phone %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-</div>
-<br>
-<h2> Comments </h2>
-<% if @post.comments.empty? %>
-  <div class="container">
-    <h5> Be the first to add a comment! </h5>
+  <%= link_to 'Back', posts_path %>
   </div>
-<% else %>
-  <% @post.comments.each do |comment| %>
-    <h3><%=comment.description%></h3>
+  <br>
+  <h2> Comments </h2>
+  <% if @post.comments.empty? %>
+    <div class="container">
+      <h5> Be the first to add a comment! </h5>
+    </div>
+  <% else %>
+    <% @post.comments.each do |comment| %>
+      <h5><%="#{comment.author}: #{comment.description}"%></h5>
+    <% end %>
   <% end %>
-<% end %>
-<!--- new comment path -->
-<a class="btn btn-success" href="/posts/<%= @post.id %>/comments/new"> Add comment </a>
+  <!--- new comment path -->
+  <a class="comment_btn btn btn-success" href="/posts/<%= @post.id %>/comments/new"> Add comment </a>
 </div>
